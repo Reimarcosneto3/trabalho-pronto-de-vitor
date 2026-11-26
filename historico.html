@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Histórico &amp; Indicadores | Jolly Rogers</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Urbanist:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/historico.css">
+  <link rel="stylesheet" href="css/extras.css">
+</head>
+<body class="pg-historico">
+
+<!-- ============ TOPO E MENU ============ -->
+<header class="topo" id="topo">
+  <a href="#topo" class="logo"><img src="img/logo-completo.png" alt="Jolly Rogers"></a>
+  <a href="mesas.html#nova-comanda" class="btn-pill">Abrir comanda +</a>
+  <a href="#menu" class="hamburguer" aria-label="Abrir menu"></a>
+  <a href="#topo" class="fechar" aria-label="Fechar menu">&times;</a>
+</header>
+
+<nav id="menu" aria-label="Navegação principal">
+  <ul>
+    <li><a href="index.html">Cardápio</a></li>
+    <li><a href="mesas.html">Mesas &amp; Comandas</a></li>
+    <li><a href="pedidos.html">Pedidos (KDS)</a></li>
+    <li><a href="#topo" aria-current="page">Histórico &amp; Relatório</a></li>
+  </ul>
+</nav>
+
+<!-- ============ CONTEÚDO ============ -->
+<main class="historico-main">
+
+  <header class="intro">
+    <hgroup>
+      <h1>Histórico &amp; Indicadores</h1>
+      <p>Consulte o histórico de comandas fechadas e reimprima comprovantes operacionais.</p>
+    </hgroup>
+  </header>
+
+  <!-- Indicadores -->
+  <section class="indicadores-grid">
+    <article class="card-indicador"><h3>Faturamento total acumulado</h3></article>
+    <article class="card-indicador"><h3>Comanda finalizadas</h3></article>
+    <article class="card-indicador"><h3>Ticket médio por mesa</h3></article>
+    <article class="card-indicador"><h3>Itens / Pratos servidos</h3></article>
+  </section>
+
+  <!-- Filtros: busca, forma de pagamento e ordenação -->
+  <search class="filtros-historico">
+    <form action="#">
+      <input type="search" placeholder="Pesquisa por clientes, comanda ou mesa..." aria-label="Pesquisar">
+      <select aria-label="Forma de pagamento">
+        <option>Todas as formas de pagamento</option>
+        <option>Pix</option>
+        <option>Cartão</option>
+        <option>Dinheiro</option>
+      </select>
+      <select aria-label="Ordenação">
+        <option>Mais recentes primeiro</option>
+        <option>Mais antigos primeiro</option>
+      </select>
+    </form>
+  </search>
+
+  <!-- Tabela de comandas fechadas (linhas vazias de exemplo; o conteúdo entra depois) -->
+  <section class="tabela-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Comanda</th>
+          <th>Mesa</th>
+          <th>Cliente</th>
+          <th>Encerramento</th>
+          <th>Pagamento</th>
+          <th>Valor Total</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<aside class="direitos">
+  <p><em><strong>Todos os direitos reservados ao Bando:</strong> Proibida a reprodução de conteúdos sem a autorização do capitão.</em></p>
+</aside>
+
+<footer class="rodape">
+  <section class="rodape-conteudo">
+    <figure class="marca">
+      <img src="img/logo-rodape.png" alt="Jolly Rogers: caveira com chapéu de cozinheiro e talheres">
+    </figure>
+
+    <nav aria-label="Links do rodapé">
+      <h2>Rogers</h2>
+      <ul>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#contatos">Contatos</a></li>
+        <li><a href="index.html">Cardápio</a></li>
+      </ul>
+      <img src="img/redes.png" alt="Instagram, TikTok, Facebook, YouTube e LinkedIn" class="redes">
+    </nav>
+
+    <section class="contato">
+      <a href="https://wa.me/" aria-label="Chama no Whatsapp"><img src="img/whatsapp.png" alt="Chama no Whatsapp: promoções, lançamentos e benefícios"></a>
+      <ul>
+        <li><a href="#app-store"><img src="img/app-store.png" alt="Disponível na App Store"></a></li>
+        <li><a href="#google-play"><img src="img/google-play.webp" alt="Disponível no Google Play"></a></li>
+      </ul>
+    </section>
+  </section>
+
+  <p class="lema"><em><strong>Jolly Rogers:</strong> Navegando pelos mares dos sabores para trazer a você pratos dignos do Rei dos Piratas.</em></p>
+</footer>
+
+<!-- ============ COMPROVANTE (reimpressão; aberto por :target) ============ -->
+<dialog id="comprovante" aria-labelledby="t-comp">
+  <h2 id="t-comp">Comprovante de pagamento</h2>
+
+  <section class="recibo">
+    <h3>Jolly Rogers</h3>
+    <p>Av. Gastronomia, 1000 - Centro</p>
+    <p>CNPJ: 12.345.678/0001-90</p>
+    <p class="titulo-recibo">Extrato de conta / comprovante</p>
+    <hr>
+
+    <p class="dados">
+      <strong>Comanda:</strong> <span id="r-cmd"></span> | <strong>Mesa:</strong> <span id="r-mesa"></span><br>
+      <strong>Cliente:</strong> <span id="r-cliente"></span><br>
+      <strong>Data/Hora:</strong> <span id="r-data"></span>
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Qtd</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody id="r-itens"></tbody>
+    </table>
+    <hr>
+
+    <dl>
+      <dt>Subtotal:</dt>
+      <dd id="r-sub"></dd>
+
+      <dt>Taxa de Serviço:</dt>
+      <dd id="r-taxa"></dd>
+
+      <dt id="r-desc-t" hidden>Desconto:</dt>
+      <dd id="r-desc" hidden></dd>
+
+      <dt class="total">TOTAL PAGO:</dt>
+      <dd class="total" id="r-total"></dd>
+
+      <dt>Forma de Pagamento:</dt>
+      <dd id="r-forma"></dd>
+    </dl>
+    <hr>
+
+    <p>Obrigado pela preferência!<br>Volte sempre ao Jolly Rogers.</p>
+  </section>
+
+  <menu>
+    <li><button type="button" class="btn-claro" data-imprimir>Imprimir</button></li>
+    <li><a href="#topo" class="btn-claro">Fechar</a></li>
+  </menu>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/db.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
