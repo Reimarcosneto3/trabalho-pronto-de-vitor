@@ -1,0 +1,44 @@
+/* login.css — telas de login e de política de privacidade (usa as cores do site) */
+:root {
+  --vermelho: #ff3131; --vinho: #8c1010; --laranja: #ffbd59; --creme: #ffd28b; --amarelo: #ffde59;
+  --corpo: "Urbanist", system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--corpo); color: #000; background: #fff; min-height: 100dvh; display: flex; flex-direction: column; }
+img { max-width: 100%; display: block; }
+h1, h2, p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--vinho); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+.topo { background: var(--vermelho); padding: 1.25rem clamp(1rem, 7.5vw, 6rem); }
+.topo img { height: clamp(48px, 8vw, 80px); width: auto; }
+
+main { flex: 1; display: grid; place-items: center; padding: 2rem 1rem; background: var(--laranja); }
+
+.cartao {
+  width: min(100%, 460px); background: var(--creme); border-radius: 2rem; padding: 2rem;
+  display: grid; gap: 1.2rem; box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+}
+.cartao h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); text-transform: uppercase; color: var(--vinho); font-weight: 800; }
+.cartao label { display: block; font-weight: 800; margin-bottom: .4rem; }
+.cartao input {
+  width: 100%; border: 0; background: #fff; border-radius: 1rem; padding: 1rem; font: inherit; color: #000;
+}
+.cartao form { display: grid; gap: 1.1rem; }
+.cartao button {
+  border: 0; cursor: pointer; font: 800 1.2rem var(--corpo); padding: .9rem 1.7rem; border-radius: 1rem;
+  background: var(--vermelho); color: #000;
+}
+.cartao button:hover { background: #e82020; }
+.cartao button:disabled { opacity: .6; cursor: wait; }
+.msg { background: var(--amarelo); border-radius: .8rem; padding: .7rem 1rem; font-weight: 700; }
+.rodape-login { text-align: center; font-size: .9rem; font-weight: 700; }
+
+/* política de privacidade */
+.texto { width: min(100%, 820px); background: #fff; border-radius: 1.5rem; padding: clamp(1.2rem, 4vw, 2.5rem); line-height: 1.65; }
+.texto h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); text-transform: uppercase; color: var(--vinho); font-weight: 800; margin-bottom: .4rem; }
+.texto h2 { font-size: 1.2rem; margin: 1.6rem 0 .4rem; color: var(--vinho); }
+.texto p, .texto li { margin: .5rem 0; }
+.texto ul { padding-left: 1.3rem; }
+.texto .atualizado { font-weight: 700; color: #6a4a1b; }

@@ -1,0 +1,101 @@
+/* ==========================================================================
+   extras.css — complementos para o JS (não altera os seus CSS originais)
+   ========================================================================== */
+
+/* Aviso rápido */
+output.toast {
+  position: fixed; left: 50%; bottom: 1.5rem; translate: -50% 0; z-index: 1100;
+  max-width: calc(100vw - 2rem); padding: .9rem 1.5rem; border-radius: 999px;
+  background: var(--vinho); color: var(--creme); font: 800 .95rem var(--corpo);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+
+/* Cardápio */
+.btn-mini.off, .btn-mini.off:hover { background: #e8c9a0; color: #9a8566; cursor: not-allowed; transform: none; }
+li.indisponivel article { opacity: .65; }
+.sem-resultados {
+  padding: 2.5rem 1rem; text-align: center; font-weight: 800; text-transform: uppercase;
+  border: 3px dashed var(--vinho); border-radius: 1.2rem; color: var(--vinho);
+}
+
+/* Mesas: destaque da mesa/comanda selecionada e botões de quantidade */
+.mesa.ativa { outline: 4px solid #000; outline-offset: 2px; }
+.mesa small { font-size: .75rem; }
+.painel li > a.ativa .cartao { box-shadow: 0 0 0 4px var(--amarelo); }
+.itens td.qtd { white-space: nowrap; }
+.qtd button:disabled { opacity: .35; cursor: not-allowed; }
+
+/* KDS: cartões de pedido dentro das colunas */
+.kds-conteudo.cheio {
+  display: grid; align-content: start; justify-content: stretch; align-items: start;
+  gap: .8rem; padding: 1rem; min-height: 0; text-align: left;
+}
+.kds-card {
+  display: grid; gap: .45rem; padding: .8rem 1rem;
+  background: var(--creme); border: 3px solid var(--vinho); border-radius: 1rem;
+}
+.kds-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: .6rem; }
+.kds-card h3 { margin: 0; font: 800 1.05rem var(--corpo); text-transform: uppercase; line-height: 1.2; }
+.kds-card time { flex: none; font: 800 .75rem var(--corpo); color: var(--vinho); }
+.kds-card p { font-size: .85rem; font-weight: 600; text-transform: none; color: #222; }
+.kds-card .obs { background: var(--amarelo); border-radius: .6rem; padding: .3rem .6rem; }
+.kds-acoes { display: flex; gap: .5rem; margin-top: .2rem; }
+.kds-card button {
+  border: 0; border-radius: 999px; padding: .7rem 1rem; cursor: pointer;
+  font: 800 .75rem var(--corpo); text-transform: uppercase;
+  background: var(--vinho); color: var(--creme);
+}
+.kds-card button:hover { filter: brightness(1.15); }
+.kds-card .btn-voltar { background: var(--laranja); color: #5a3b12; }
+.kds-card .btn-avancar { flex: 1; }
+
+/* Histórico */
+.card-indicador { flex-direction: column; gap: .6rem; }
+.card-indicador .valor { font: 800 clamp(1.5rem, 3vw, 2rem) var(--corpo); color: #000; overflow-wrap: anywhere; }
+.tabela-container .sem-dados td { text-align: center; padding: 2.5rem 1rem; }
+
+/* Comprovante na página de histórico (a de mesas já traz esse estilo) */
+body.pg-historico .recibo {
+  background: #fff; border-radius: 1rem; margin: 1.5rem 2rem; padding: 1.5rem;
+  font: .9rem/1.5 "Courier New", monospace; color: #222;
+}
+body.pg-historico .recibo h3 { text-align: center; font: 700 1.3rem "Courier New", monospace; text-transform: uppercase; }
+body.pg-historico .recibo p { text-align: center; margin: .2rem 0; }
+body.pg-historico .recibo .dados { text-align: left; }
+body.pg-historico .recibo .titulo-recibo { margin-top: .6rem; text-transform: uppercase; }
+body.pg-historico .recibo hr { border: 0; border-top: 1px dashed #555; margin: .8rem 0; }
+body.pg-historico .recibo table { width: 100%; border-collapse: collapse; }
+body.pg-historico .recibo th, body.pg-historico .recibo td { padding: .15rem 0; text-align: left; }
+body.pg-historico .recibo th:not(:first-child), body.pg-historico .recibo td:not(:first-child) { text-align: right; }
+body.pg-historico .recibo dl { display: grid; grid-template-columns: 1fr auto; margin: 0; }
+body.pg-historico .recibo dd { margin: 0; text-align: right; }
+body.pg-historico .recibo .total { font-size: 1.15rem; font-weight: 700; border-top: 2px solid #222; padding-top: .4rem; margin-top: .3rem; }
+
+/* Impressão: só o comprovante */
+@media print {
+  body > *:not(dialog) { display: none !important; }
+  body::after { display: none !important; }
+  dialog:not(:target) { display: none !important; }
+  dialog:target {
+    position: static; width: 100%; max-height: none; overflow: visible;
+    background: #fff; border-radius: 0;
+  }
+  dialog:target h2, dialog:target menu { display: none; }
+}
+
+/* ==========================================================================
+   Login / perfis (Supabase)
+   ========================================================================== */
+/* a página fica escondida até o login ser conferido */
+html:not(.jr-ok) body { visibility: hidden; }
+
+/* campo de arquivo dos formulários do cardápio */
+dialog input[type="file"] {
+  width: 100%; background: var(--creme); border-radius: 1rem; padding: .8rem 1rem; font: inherit; color: #000;
+}
+
+/* o que cada perfil enxerga */
+body:not(.papel-gerente) a[href="#novo-item"],
+body:not(.papel-gerente) li[data-id] [data-acao="editar"],
+body:not(.papel-gerente) li[data-id] [data-acao="excluir"] { display: none !important; }
+body.papel-cozinha .btn-pill { display: none !important; }
