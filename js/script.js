@@ -121,12 +121,13 @@ DB.pronto(function () {
         });
         if (!criado) return;
         const arq = $('#n-arq').files[0];
-        if (arq) await DB.enviarFoto(arq, criado.id);
+        const fotoOk = arq ? await DB.enviarFoto(arq, criado.id) : true;
         form.reset();
         $('#n-disp').checked = true;
         render();
         location.hash = '#' + cat;
-        DB.aviso('Item adicionado ao cardápio.');
+        if (fotoOk) DB.aviso('Item adicionado ao cardápio.');
+        // se a foto falhou, o motivo já está na tela (não cobrir com outro aviso)
       } finally { btn.disabled = false; }
     });
 
@@ -150,11 +151,11 @@ DB.pronto(function () {
         });
         if (!salvo) return;
         const arq = $('#e-arq').files[0];
-        if (arq) await DB.enviarFoto(arq, editandoId);
+        const fotoOk = arq ? await DB.enviarFoto(arq, editandoId) : true;
         editandoId = null;
         render();
         location.hash = '#topo';
-        DB.aviso('Item atualizado.');
+        if (fotoOk) DB.aviso('Item atualizado.');
       } finally { btn.disabled = false; }
     });
 
